@@ -1,0 +1,26 @@
+services:
+  ollama:
+    image: ollama/ollama:latest
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    restart: unless-stopped
+
+  # Pull MzansiLM model on startup
+  setup:
+    image: ollama/ollama:latest
+    depends_on:
+      - ollama
+    entrypoint: >
+      sh -c "
+      sleep 10 &&
+      echo 'Pulling MzansiLM model...' &&
+      # When MzansiLM is published on Ollama, uncomment:
+      # ollama pull mzansilm:latest
+      echo 'Model ready! Access Ollama at http://localhost:11434'
+      "
+    restart: "no"
+
+volumes:
+  ollama_data:
