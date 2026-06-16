@@ -1,4 +1,6 @@
-# MzansiText & MzansiLM
+# Mza
+[![Security](https://img.shields.io/badge/Security-Policy-1f6feb?style=for-the-badge&logo=github)](SECURITY.md)
+nsiText & MzansiLM
 
 **An open corpus and decoder-only language model for South African languages.**
 
